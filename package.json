@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nuraddiniy99/sifi-bymasiki.git"
+    "url": "git+https://github.com/Nuraddiniy99/sifi.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nuraddiniy99/sifi-bymasiki/issues"
+    "url": "https://github.com/Nuraddiniy99/sifi/issues"
   },
-  "homepage": "https://github.com/Nuraddiniy99/sifi-bymasiki#readme"
+  "homepage": "https://github.com/Nuraddiniy99/sifi#readme"
 }
