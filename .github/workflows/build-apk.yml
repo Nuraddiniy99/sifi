@@ -1,4 +1,4 @@
-name: Build Capacitor Android APK
+﻿name: Build Capacitor Android APK
 
 on:
   workflow_dispatch:
