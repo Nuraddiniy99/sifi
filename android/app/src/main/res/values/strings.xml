@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mas Rizki</string>
+    <string name="title_activity_main">Mas Rizki</string>
+    <string name="package_name">com.masikicorp.app</string>
+    <string name="custom_url_scheme">com.masikicorp.app</string>
+</resources>

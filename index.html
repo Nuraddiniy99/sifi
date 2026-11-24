@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Memuat…</title>
+<meta name="description" content="">
+<meta name="theme-color" content="#F5EEDF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5EEDF;--cream2:#EADFC8;--ink:#16130F;--mut:#5d564b;--w:#fff;--r:26px;
+--glass:linear-gradient(135deg,rgba(255,255,255,.78),rgba(255,255,255,.36));
+--sh:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.05),0 14px 44px -14px rgba(70,50,15,.28);
+--ease:cubic-bezier(.22,1,.36,1);--sb:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font:16px/1.65 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--cream);min-height:100dvh;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.12;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:10px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:99px;z-index:99}.skip:focus{left:8px}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(120% 80% at 50% 0,#fffaf0,var(--cream))}
+.bg i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75;animation:fl 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:46vmax;height:46vmax;background:#E6D2A6;left:-12vmax;top:-10vmax}
+.bg i:nth-child(2){width:38vmax;height:38vmax;background:#fff;right:-10vmax;top:18vh;animation-duration:23s}
+.bg i:nth-child(3){width:30vmax;height:30vmax;background:#cdb88c;left:25vw;bottom:-14vmax;opacity:.5;animation-duration:27s}
+@keyframes fl{to{transform:translate3d(8vmax,6vmax,0) scale(1.15)}}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid rgba(255,255,255,.85);box-shadow:var(--sh);border-radius:var(--r)}
+/* nav */
+nav{position:fixed;z-index:50;display:flex;gap:4px;padding:6px}
+nav button,#fm button{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:10px 16px;border-radius:99px;color:var(--mut);transition:background .4s var(--ease),color .4s,transform .3s var(--ease)}
+nav button:hover{color:var(--ink)}
+nav button[aria-current=page]{background:var(--ink);color:#fff}
+nav svg,#fm svg,#fab svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#fabw{display:none}
+@media(min-width:861px){nav{top:18px;left:50%;transform:translateX(-50%);border-radius:99px}nav svg{display:none}}
+@media(max-width:860px){nav{left:12px;right:84px;bottom:calc(12px + var(--sb));height:60px;border-radius:30px;padding:6px}
+nav button{flex:1;flex-direction:column;justify-content:center;gap:2px;font-size:11px;padding:0;border-radius:24px;min-width:0}
+nav button.ov{display:none}nav button:active{transform:scale(.92)}
+#fabw{display:block}
+#fab{all:unset;cursor:pointer;position:fixed;z-index:70;right:14px;bottom:calc(12px + var(--sb));width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:var(--glass);backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh);animation:bob 4s ease-in-out infinite;transition:background .4s,color .4s}
+#fab svg{width:26px;height:26px;transition:transform .6s var(--ease)}
+#fabw.open #fab{animation:none;background:var(--ink);color:#fff}#fabw.open #fab svg{transform:rotate(135deg)}
+#fab[data-act]:after{content:"";position:absolute;top:10px;right:10px;width:10px;height:10px;border-radius:50%;background:var(--ink);border:2px solid #fff}
+#fabw.open #fab:after{display:none}
+@keyframes bob{50%{transform:translateY(-5px)}}
+#sc{position:fixed;inset:0;z-index:60;background:rgba(245,238,223,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+#fabw.open #sc{opacity:1;visibility:visible}
+#fm{position:fixed;z-index:65;right:14px;bottom:calc(86px + var(--sb));display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+#fm button{padding:12px 20px 12px 16px;color:var(--ink);opacity:0;transform:translateY(24px) scale(.7);transform-origin:right bottom;pointer-events:none;transition:opacity .35s,transform .6s var(--ease);transition-delay:calc((var(--n) - var(--i))*45ms)}
+#fabw.open #fm button{opacity:1;transform:none;pointer-events:auto;transition-delay:calc(var(--i)*60ms)}
+#fm button[aria-current=page]{background:var(--ink);color:#fff}}
+@media(max-width:860px){main{padding-top:28px}}
+main{max-width:1120px;margin:0 auto;padding:110px 20px calc(120px + var(--sb))}
+@media(max-width:860px){main{padding-top:28px}}
+.page{display:none}.page.on{display:block}
+.page.on .rv{animation:rise .9s var(--ease) backwards;animation-delay:calc(var(--i,0)*70ms)}
+@keyframes rise{from{opacity:0;transform:translateY(26px) scale(.98);filter:blur(8px)}}
+.ph{margin-bottom:28px}.ph h2{font-size:clamp(30px,5vw,48px)}.ph p{color:var(--mut)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;min-height:calc(100dvh - 240px)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:24px;min-height:0}.hero .sl{order:-1}}
+.role{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;font-weight:600;font-size:14px;min-height:40px}
+.role:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);animation:pl 1.6s infinite}
+@keyframes pl{50%{opacity:.25;transform:scale(1.5)}}
+.role span{transition:opacity .4s,transform .4s var(--ease)}.role span.o{opacity:0;transform:translateY(8px)}
+.hero h1{font-size:clamp(40px,7vw,76px);margin:18px 0 14px}
+.hero p.sum{color:var(--mut);max-width:52ch;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:99px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:700 15px Manrope,sans-serif;transition:transform .4s var(--ease),box-shadow .4s}
+.btn.k{background:var(--ink);color:#fff;box-shadow:0 12px 28px -10px rgba(22,19,15,.6)}
+.btn.g{background:var(--glass);border:1px solid #fff;box-shadow:var(--sh);backdrop-filter:blur(20px)}
+.btn:hover{transform:translateY(-3px)}.btn:active{transform:scale(.96)}
+.sl{position:relative;aspect-ratio:4/5;max-height:70dvh;width:100%;max-width:460px;margin-inline:auto;padding:10px;touch-action:pan-y;transition:transform .25s ease-out}
+.sl .fr{position:relative;height:100%;border-radius:calc(var(--r) - 8px);overflow:hidden;background:var(--cream2)}
+.sl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s ease,transform 6s linear}
+.sl img.on{opacity:1;transform:scale(1)}
+.dots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:8px}
+.dots button{all:unset;cursor:pointer;width:9px;height:9px;border-radius:9px;background:rgba(255,255,255,.7);transition:width .5s var(--ease),background .3s;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.dots button.on{width:28px;background:#fff}
+.mq{margin-top:48px;overflow:hidden;padding:14px 0;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq div{display:flex;gap:12px;width:max-content;animation:mq 40s linear infinite}.mq:hover div{animation-play-state:paused}
+.mq span{padding:9px 18px;border-radius:99px;font-weight:600;font-size:14px;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.card{padding:26px;transition:transform .5s var(--ease)}.card:hover{transform:translateY(-4px)}
+.card h3{font-size:22px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.8);border:1px solid rgba(22,19,15,.08);font-size:13.5px;font-weight:600}
+.card p+p{margin-top:12px}.card p{color:#3b362e}
+dl{display:grid;gap:12px}dt{font-size:13px;color:var(--mut);font-weight:600}dd{font-weight:600}
+.bar{height:8px;border-radius:9px;background:rgba(22,19,15,.08);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--ink);border-radius:9px;width:0;transition:width 1.4s var(--ease) .3s}
+/* timeline */
+.tl{position:relative;padding-left:28px;display:grid;gap:16px}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--ink),rgba(22,19,15,.08))}
+.tl article{position:relative;padding:22px 24px}
+.tl article:before{content:"";position:absolute;left:-28px;top:28px;width:16px;height:16px;border-radius:50%;background:var(--cream);border:4px solid var(--ink)}
+.tl h3{font-size:20px}.tl .org{font-weight:600;color:var(--mut)}.tl .per{display:inline-block;margin:8px 0;padding:3px 12px;border-radius:99px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600}
+.tl ul{padding-left:18px;color:#3b362e}.tl li{margin-top:4px}
+.fil{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 18px;scrollbar-width:none}.fil::-webkit-scrollbar{display:none}
+.fil button{all:unset;cursor:pointer;white-space:nowrap;padding:9px 18px;border-radius:99px;font-weight:600;font-size:14px;background:var(--glass);border:1px solid #fff;transition:.4s var(--ease)}
+.fil button[aria-pressed=true]{background:var(--ink);color:#fff}
+.ach li{list-style:none;padding:12px 0;border-top:1px solid rgba(22,19,15,.08);display:flex;gap:12px}.ach li:first-child{border:0}
+.ach li:before{content:"";flex:none;width:8px;height:8px;margin-top:10px;border-radius:50%;background:var(--ink)}
+/* gallery */
+.gal{columns:3 220px;column-gap:14px}
+.gal figure{break-inside:avoid;margin-bottom:14px;overflow:hidden;border-radius:20px;padding:6px;cursor:zoom-in;position:relative}
+.gal img{width:100%;border-radius:15px;transition:transform .8s var(--ease);background:var(--cream2);min-height:120px}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:14px;right:14px;bottom:14px;padding:6px 12px;border-radius:14px;font-size:13px;font-weight:600;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);opacity:0;transform:translateY(8px);transition:.4s}
+.gal figure:hover figcaption{opacity:1;transform:none}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(22,19,15,.82);backdrop-filter:blur(14px);display:none;place-items:center;padding:20px;touch-action:pan-y}
+#lb.on{display:grid;animation:rise .5s var(--ease)}
+#lb img{max-height:80dvh;max-width:100%;border-radius:20px;object-fit:contain}
+#lb p{color:#fff;text-align:center;margin-top:12px}
+#lb button{all:unset;cursor:pointer;position:absolute;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.18);font-size:22px}
+#lb .pv,#lb .nx{margin-top:-23px}#lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:16px}#lb .pv{left:12px;top:50%}#lb .nx{right:12px;top:50%}
+/* contact */
+.ct{display:flex;align-items:center;gap:16px;padding:22px;text-decoration:none}
+.ct b{display:block;font-size:13px;color:var(--mut)}.ct span{font-weight:700;word-break:break-all}
+.ct svg{flex:none;width:46px;height:46px;padding:12px;border-radius:16px;background:var(--ink);color:#fff;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sh{font-size:clamp(22px,3.5vw,28px);margin:46px 0 16px}.gh{display:flex;align-items:center;gap:12px;font-size:clamp(20px,3vw,26px);margin:4px 0 18px}.gh b{flex:none;width:38px;height:38px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 16px Manrope,sans-serif}.gh small{font:600 13px Manrope,sans-serif;color:var(--mut);margin-left:auto}.lst{padding:0}.lst li{list-style:none;display:flex;gap:12px;padding:8px 0;color:#3b362e}.lst li:before{content:"";flex:none;width:7px;height:7px;margin-top:10px;border-radius:50%;background:var(--ink)}.gp[hidden]{display:none}footer{text-align:center;color:var(--mut);font-size:13px;margin-top:48px}
+#ld{position:fixed;inset:0;display:grid;place-items:center;z-index:99;background:var(--cream);transition:opacity .7s,visibility .7s}
+#ld.h{opacity:0;visibility:hidden}#ld div{width:44px;height:44px;border-radius:50%;border:3px solid rgba(22,19,15,.12);border-top-color:var(--ink);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#err{display:none;max-width:480px;margin:20vh auto;padding:28px;text-align:center}
+#err input{margin-top:14px;max-width:100%}
+@media(prefers-reduced-motion:reduce){*,:before,:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke konten</a>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div id="ld" aria-label="Memuat"><div></div></div>
+<div id="err" class="glass" role="alert"><h2>Data belum termuat</h2><p>Data dari <b>JSONBin</b> tidak dapat dibaca. Periksa <b>JSONBIN_URL</b> &amp; <b>JSONBIN_KEY</b> di dalam kode, atau jalankan situs lewat hosting/server, atau pilih file secara manual.</p><input type="file" id="fp" accept=".json"></div>
+<nav class="glass" id="nav" aria-label="Navigasi utama"></nav>
+<div id="fabw"><div id="sc"></div><div id="fm" role="menu" aria-label="Menu lainnya"></div><button id="fab" aria-label="Menu lainnya" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div>
+<main id="main"></main>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeri"><button class="x" aria-label="Tutup">✕</button><button class="pv" aria-label="Sebelumnya">‹</button><div><img alt=""><p></p></div><button class="nx" aria-label="Berikutnya">›</button></div>
+<script>
+/* ==========================================================================
+   CV LANDING PAGE
+   --------------------------------------------------------------------------
+   STRUKTUR:
+    1. Konfigurasi JSONBin
+    2. Helpers
+    3. State & Daftar Halaman
+    4. Render (R)
+    5. Router + History (Back Button)
+    6. Build
+    7. Init per Halaman
+    8. Lightbox Galeri
+    9. Menu FAB
+   10. Navigasi Global
+   11. Error & File Picker
+   12. Load Data dari JSONBin
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. KONFIGURASI JSONBIN — GANTI DI SINI
+   --------------------------------------------------------------------------
+   - JSONBIN_URL : alamat bin dari dashboard JSONBin.
+                   Contoh: https://api.jsonbin.io/v3/b/68xxxxxxxxxxxx
+                   Boleh juga yang berakhiran /latest.
+   - JSONBIN_KEY : kunci JSONBin. Disarankan pakai X-Access-Key (Read-only)
+                   dari dashboard JSONBin, bukan Master Key.
+                   Kunci ini terlihat di source code karena website statis,
+                   jadi jangan pakai Master Key agar bin tidak bisa diubah orang lain.
+   ========================================================================== */
+const JSONBIN_URL = "https://api.jsonbin.io/v3/b/6af5bb36ffd5d16053bc10cf";
+const JSONBIN_KEY = "$2a$10$9oqbaK5YtOiRX2vANk7QUuRDUpiY8dbDiuCt/PtIQkWtwAD/NULfi";
+
+
+/* ==========================================================================
+   2. HELPERS
+   ========================================================================== */
+const $ = (s, e = document) => e.querySelector(s);
+const $$ = (s, e = document) => [...e.querySelectorAll(s)];
+
+/* Escape HTML agar data dari JSONBin aman ditampilkan. */
+const E = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* Pastikan selalu array. */
+const A = (a) => (Array.isArray(a) ? a : []);
+
+/* Ikon SVG (path 24x24). */
+const IC = { home: 'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z', about: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', exp: 'M3 7h18v13H3zM8 7V4h8v3M3 13h18', edu: 'M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5', ach: 'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3', gal: 'M3 4h18v16H3zM3 16l5-5 4 4 3-3 6 6M8.5 9.5h.01', contact: 'M3 5h18v14H3zM3 6l9 7 9-7', wa: 'M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z', ig: 'M4 4h16v16H4zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 7.5h.01', pin: 'M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' };
+const svg = (n) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${IC[n]}"/></svg>`;
+const img = (s, a = "", x = "") => `<img src="${E(s)}" alt="${E(a)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" ${x} onerror="this.style.visibility='hidden'">`;
+
+
+/* ==========================================================================
+   3. STATE & DAFTAR HALAMAN
+   ========================================================================== */
+let DB = null;
+let cur = "home";
+let timers = [];
+let MORE = [];
+
+const PAGES = [
+  ["home", "Beranda", () => 1],
+  ["about", "Profil", (d) => A(d.profile?.summary).length || A(d.skills).length],
+  ["exp", "Karier", (d) => A(d.experience).length],
+  ["edu", "Studi", (d) => A(d.education).length],
+  ["ach", "Prestasi", (d) => A(d.achievements).length],
+  ["gal", "Galeri", (d) => A(d.gallery).length],
+  ["contact", "Kontak", (d) => d.contact],
+];
+const PAGE_IDS = PAGES.map((p) => p[0]);
+const isPage = (id) => PAGE_IDS.includes(id);
+
+
+/* ==========================================================================
+   4. RENDER (R) — HTML tiap halaman, dari data JSONBin
+   ========================================================================== */
+const R = {
+  home(d) {
+    const s = d.site || {};
+    const p = d.photos || {};
+    const ph = [p.main, ...A(p.slides)].filter(Boolean);
+    const c = d.contact || {};
+    const sk = A(d.skills).flatMap((x) => A(x.items));
+    return `<section class="hero"><div><div class="role glass rv" style="--i:0" aria-live="polite"><span id="rl">${E(A(s.roles)[0] || "")}</span></div>
+      <h1 class="rv" style="--i:1">${E(s.name)}</h1><p class="sum rv" style="--i:2">${E(A(d.profile?.summary)[0])}</p>
+      <div class="cta rv" style="--i:3">${c.whatsapp ? `<a class="btn k" href="https://wa.me/${E(String(c.whatsapp).replace(/\D/g, ""))}" target="_blank" rel="noopener">Hubungi via WhatsApp</a>` : ""}<button class="btn g" data-go="about">Lihat profil lengkap</button></div></div>
+      <div class="sl glass rv" style="--i:2" id="sl" role="region" aria-roledescription="carousel" aria-label="Foto profil"><div class="fr">${ph.map((u, i) => img(u, s.name, `class="${i ? "" : "on"}" ${i ? "" : 'loading="eager" fetchpriority="high"'}`)).join("")}</div>${ph.length > 1 ? `<div class="dots">${ph.map((_, i) => `<button aria-label="Foto ${i + 1}" class="${i ? "" : "on"}"></button>`).join("")}</div>` : ""}</div></section>
+      ${sk.length ? `<div class="mq rv" style="--i:4" aria-hidden="true"><div>${[...sk, ...sk].map((x) => `<span class="glass">${E(x)}</span>`).join("")}</div></div>` : ""}`;
+  },
+
+  about(d) {
+    const p = d.profile || {};
+    return `<div class="ph rv"><h2>Profil</h2><p>${E(d.site?.tagline)}</p></div>
+      <h3 class="sh rv" style="margin-top:0">Profil Profesional</h3><div class="card glass rv" style="--i:1">${A(p.summary).map((x) => `<p>${E(x)}</p>`).join("")}</div>
+      <div class="grid" style="margin-top:18px">${A(p.personal).length ? `<div class="card glass rv" style="--i:2"><h3>Informasi Personal</h3><dl>${p.personal.map((x) => `<div><dt>${E(x.label)}</dt><dd>${E(x.value)}</dd></div>`).join("")}</dl></div>` : ""}
+      ${A(d.languages).length ? `<div class="card glass rv" style="--i:3"><h3>Kemampuan Bahasa</h3><dl>${d.languages.map((x) => `<div><dt>${E(x.name)}</dt><dd>${E(x.level)}</dd><div class="bar"><i data-w="${E(x.percent || 80)}"></i></div></div>`).join("")}</dl></div>` : ""}</div>
+      ${A(d.skills).length ? `<h3 class="sh rv">Kompetensi Utama</h3><div class="grid">${d.skills.map((x, i) => `<div class="card glass rv" style="--i:${i + 1}"><h3>${E(x.title)}</h3><ul class="lst">${A(x.items).map((t) => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>` : ""}`;
+  },
+
+  exp(d) {
+    const g = A(d.experience);
+    const L = (i) => String.fromCharCode(65 + i);
+    return `<div class="ph rv"><h2>Pengalaman Profesional</h2><p>Pilih kategori untuk melihat rinciannya.</p></div><div class="fil rv" style="--i:1" role="tablist">${g.map((x, i) => `<button role="tab" aria-pressed="${!i}" data-f="${i}">${L(i)}. ${E(x.group)}</button>`).join("")}</div>
+      ${g.map((x, gi) => `<section class="gp" data-g="${gi}" ${gi ? "hidden" : ""}><h3 class="gh rv" style="--i:2"><b>${L(gi)}</b>${E(x.group)}<small>${A(x.items).length} posisi</small></h3><div class="tl">${A(x.items).map((it, i) => `<article class="glass rv" style="--i:${i + 3}"><h3>${E(it.title)}</h3><div class="org">${E(it.org)}</div>${it.period ? `<span class="per">${E(it.period)}</span>` : ""}${A(it.points).length ? `<ul>${it.points.map((t) => `<li>${E(t)}</li>`).join("")}</ul>` : ""}</article>`).join("")}</div></section>`).join("")}`;
+  },
+
+  edu(d) {
+    return `<div class="ph rv"><h2>Pendidikan</h2></div><div class="tl">${A(d.education).map((x, i) => `<article class="glass rv" style="--i:${i}"><h3>${E(x.school)}</h3><div class="org">${E(x.program)}</div><span class="per">${E(x.period)}</span>${x.note ? `<p>${E(x.note)}</p>` : ""}</article>`).join("")}</div>`;
+  },
+
+  ach(d) {
+    return `<div class="ph rv"><h2>Prestasi</h2></div><div class="grid">${A(d.achievements).map((x, i) => `<div class="card glass rv" style="--i:${i}"><h3>${E(x.group)}</h3><ul class="ach">${A(x.items).map((t) => `<li>${E(t)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  },
+
+  gal(d) {
+    return `<div class="ph rv"><h2>Galeri</h2><p>Dokumentasi kegiatan dan perjalanan.</p></div><div class="gal">${A(d.gallery).map((x, i) => `<figure class="glass rv" style="--i:${Math.min(i, 8)}" data-i="${i}" tabindex="0" role="button" aria-label="Buka foto ${i + 1}">${img(x.src, x.caption)}${x.caption ? `<figcaption>${E(x.caption)}</figcaption>` : ""}</figure>`).join("")}</div>`;
+  },
+
+  contact(d) {
+    const c = d.contact || {};
+    const w = String(c.whatsapp || "").replace(/\D/g, "");
+    const ig = String(c.instagram || "").replace("@", "");
+    const L = [
+      [c.whatsapp && "wa", "WhatsApp", c.whatsapp, `https://wa.me/${w}`],
+      [c.email && "contact", "Email", c.email, `mailto:${c.email}`],
+      [c.instagram && "ig", "Instagram", c.instagram, `https://instagram.com/${ig}`],
+      [c.address && "pin", "Alamat", c.address, `https://www.google.com/maps/search/${encodeURIComponent(c.address || "")}`],
+    ].filter((x) => x[0]);
+    return `<div class="ph rv"><h2>Kontak</h2><p>Terbuka untuk kolaborasi dan peluang baru.</p></div><div class="grid">${L.map((x, i) => `<a class="ct glass rv" style="--i:${i}" href="${E(x[3])}" target="_blank" rel="noopener">${svg(x[0])}<div><b>${x[1]}</b><span>${E(x[2])}</span></div></a>`).join("")}</div>`;
+  },
+};
+
+
+/* ==========================================================================
+   5. ROUTER + HISTORY (BACK BUTTON)
+   --------------------------------------------------------------------------
+   Masalah lama: navigasi pakai history.replaceState().
+   replaceState hanya MENGGANTI URL di entri history yang sama,
+   tidak menambah entri baru. Jadi:
+     https://web.com/  -> klik About -> https://web.com/#about
+   tetap 1 entri. Tombol Back pun langsung keluar web.
+
+   Perbaikan: navigasi klik pakai history.pushState().
+   pushState MENAMBAH entri baru, jadi:
+     https://web.com/  -> klik About -> https://web.com/#about (entri ke-2)
+     Back -> kembali ke https://web.com/ (entri ke-1)
+     Back lagi -> baru keluar web (sudah benar).
+
+   Aturan URL:
+   - home  -> https://web.com/ (tanpa hash, bersih)
+   - lain  -> https://web.com/#about, /#exp, dst.
+   - Klik halaman yang sama tidak menambah entri duplikat.
+   - Hash bukan halaman (mis. #main dari skip link) diabaikan router.
+   - Tanpa Python / tanpa library. Murni History API bawaan browser.
+   ========================================================================== */
+
+/* URL untuk sebuah halaman. Home tanpa hash, sisanya pakai #id. */
+function urlForPage(id) {
+  const base = location.pathname + location.search;
+  return id === "home" ? base : base + "#" + id;
+}
+
+/* Pindah halaman.
+   noHistory = true  -> jangan sentuh history (dipakai saat back/forward & load awal).
+   noHistory = false -> navigasi klik, tambah entri baru via pushState. */
+function go(id, noHistory = false) {
+  const target = $("#p-" + id) || $("#p-home");
+  const nextId = target.id.slice(2);
+
+  /* Sudah di halaman itu & sudah tampil: jangan buat entri duplikat.
+     Tetap render ulang agar animasi jalan seperti sebelumnya. */
+  const alreadyOnPage = nextId === cur && document.querySelector(".page.on");
+
+  if (!noHistory && !alreadyOnPage) {
+    try {
+      history.pushState({ page: nextId }, "", urlForPage(nextId));
+    } catch (err) {
+      /* Fallback browser jadul: ubah hash, hashchange akan menangani render-nya. */
+      location.hash = nextId === "home" ? "" : nextId;
+    }
+  }
+
+  cur = nextId;
+
+  /* Tampilkan halaman */
+  $$(".page").forEach((p) => p.classList.remove("on"));
+  target.innerHTML = R[nextId](DB);
+  target.classList.add("on");
+
+  /* Tandai menu yang aktif */
+  $$("[data-go]").forEach((b) => {
+    if (b.closest("nav, #fm")) b.setAttribute("aria-current", b.dataset.go === nextId ? "page" : "false");
+  });
+
+  /* Tandai FAB jika halaman aktif ada di menu "lainnya" */
+  if (MORE.includes(nextId)) $("#fab").setAttribute("data-act", "");
+  else $("#fab").removeAttribute("data-act");
+
+  window.scrollTo({ top: 0, behavior: "instant" });
+  init(nextId, target);
+}
+
+let routerReady = false;
+
+/* Pasang listener history sekali saja (build bisa dipanggil ulang). */
+function setupRouter() {
+  if (routerReady) return;
+  routerReady = true;
+
+  /* BACK / FORWARD — tombol kembali browser & HP.
+     popstate = sumber utama untuk navigasi yang dibuat via pushState. */
+  window.addEventListener("popstate", (e) => {
+    const statePage = e.state && e.state.page;
+    const hashPage = location.hash.slice(1);
+
+    let next = null;
+    if (statePage && isPage(statePage)) next = statePage;
+    else if (!location.hash) next = "home";
+    else if (isPage(hashPage)) next = hashPage;
+    else return; /* Hash bukan halaman (mis. #main) -> abaikan. */
+
+    go(next, true);
+  });
+
+  /* Hashchange = cadangan untuk hash yang diketik manual / bookmark / link lama.
+     Saat Back ditekan, popstate sudah jalan duluan, jadi cek cur di sini
+     agar tidak render 2x. */
+  window.addEventListener("hashchange", () => {
+    const h = location.hash.slice(1);
+    if (!h) {
+      if (cur !== "home") go("home", true);
+      return;
+    }
+    if (!isPage(h)) return; /* #main dll -> abaikan. */
+    if (h === cur) return; /* Sudah ditangani popstate. */
+    go(h, true);
+  });
+}
+
+
+/* ==========================================================================
+   6. BUILD — bangun nav, halaman, lalu tampilkan halaman awal
+   ========================================================================== */
+function build(d) {
+  DB = d;
+  const s = d.site || {};
+
+  document.title = [s.name, A(s.roles)[0]].filter(Boolean).join(" | ");
+  document.querySelector("meta[name=description]").content = s.tagline || "";
+
+  const ld = document.createElement("script");
+  ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Person", name: s.name, jobTitle: A(s.roles)[0], email: d.contact?.email, telephone: d.contact?.whatsapp, image: d.photos?.main });
+  document.head.append(ld);
+
+  const pg = PAGES.filter((p) => p[2](d));
+
+  $("#nav").innerHTML = pg.map((p, i) => `<button data-go="${p[0]}" class="${i > 2 ? "ov" : ""}">${svg(p[0])}${p[1]}</button>`).join("");
+
+  const mo = pg.slice(3);
+  MORE = mo.map((p) => p[0]);
+  $("#fm").innerHTML = mo.map((p, i) => `<button class="glass" role="menuitem" data-go="${p[0]}" style="--i:${i};--n:${mo.length}">${svg(p[0])}${p[1]}</button>`).join("");
+  $("#fabw").style.display = mo.length ? "" : "";
+
+  $("#main").innerHTML = pg.map((p) => `<section class="page" id="p-${p[0]}" aria-label="${p[1]}"></section>`).join("") + `<footer>© ${new Date().getFullYear()} ${E(s.name)}</footer>`;
+
+  /* Router */
+  setupRouter();
+
+  /* Halaman awal dari URL. Hash kosong / #home = home (URL bersih tanpa hash). */
+  const rawHash = location.hash.slice(1);
+  const initial = isPage(rawHash) ? rawHash : "home";
+
+  /* Beri state pada entri history PERTAMA, agar Back dari halaman ke-2
+     bisa kembali ke halaman pertama (bukan langsung keluar web).
+     replaceState = tidak menambah entri baru, hanya melengkapi entri yang ada.
+     Jika awalnya #home, URL dinormalisasi jadi tanpa hash. */
+  try {
+    history.replaceState({ page: initial }, "", urlForPage(initial));
+  } catch (err) { /* Abaikan, tetap render. */ }
+
+  go(initial, true);
+  $("#ld").classList.add("h");
+}
+
+
+/* ==========================================================================
+   7. INIT per HALAMAN — slider, filter, galeri
+   ========================================================================== */
+function init(id, t) {
+  /* Animasi bar bahasa */
+  $$(".bar i", t).forEach((i) => requestAnimationFrame(() => (i.style.width = i.dataset.w + "%")));
+
+  /* HOME: slider foto + rotasi role */
+  if (id === "home") {
+    const im = $$(".sl img", t);
+    const ds = $$(".dots button", t);
+    const sl = $("#sl");
+    let k = 0;
+
+    const show = (n) => {
+      k = (n + im.length) % im.length;
+      im.forEach((x, i) => x.classList.toggle("on", i === k));
+      ds.forEach((x, i) => x.classList.toggle("on", i === k));
+    };
+
+    ds.forEach((b, i) => (b.onclick = () => show(i)));
+
+    if (im.length > 1 && sl) {
+      let hov = 0;
+      timers.push(setInterval(() => !hov && show(k + 1), 4500));
+      sl.onmouseenter = () => (hov = 1);
+      sl.onmouseleave = () => (hov = 0);
+
+      let x0 = null;
+      sl.onpointerdown = (e) => (x0 = e.clientX);
+      sl.onpointerup = (e) => {
+        if (x0 !== null && Math.abs(e.clientX - x0) > 40) show(k + (e.clientX < x0 ? 1 : -1));
+        x0 = null;
+      };
+    }
+
+    if (sl && matchMedia("(hover:hover)").matches) {
+      sl.onmousemove = (e) => {
+        const r = sl.getBoundingClientRect();
+        sl.style.transform = `perspective(900px) rotateY(${((e.clientX - r.left) / r.width - 0.5) * 8}deg) rotateX(${ -((e.clientY - r.top) / r.height - 0.5) * 8}deg)`;
+      };
+      sl.addEventListener("mouseleave", () => (sl.style.transform = ""));
+    }
+
+    const ro = A(DB.site?.roles);
+    const rl = $("#rl");
+    if (ro.length > 1 && rl) {
+      let n = 0;
+      timers.push(
+        setInterval(() => {
+          rl.classList.add("o");
+          setTimeout(() => {
+            rl.textContent = ro[++n % ro.length];
+            rl.classList.remove("o");
+          }, 400);
+        }, 3000)
+      );
+    }
+  }
+
+  /* EXP: filter kategori */
+  if (id === "exp") {
+    $$(".fil button", t).forEach((b) => {
+      b.onclick = () => {
+        $$(".fil button", t).forEach((x) => x.setAttribute("aria-pressed", x === b));
+        $$(".gp", t).forEach((p) => {
+          p.hidden = p.dataset.g !== b.dataset.f;
+          if (!p.hidden) {
+            $$(".rv", p).forEach((e) => {
+              e.style.animation = "none";
+              void e.offsetWidth;
+              e.style.animation = "";
+            });
+          }
+        });
+      };
+    });
+  }
+
+  /* GAL: klik / Enter untuk buka lightbox */
+  if (id === "gal") {
+    $$("figure", t).forEach((f) => {
+      f.onclick = () => lb(+f.dataset.i);
+      f.onkeydown = (e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), lb(+f.dataset.i));
+    });
+  }
+}
+
+
+/* ==========================================================================
+   8. LIGHTBOX GALERI
+   ========================================================================== */
+let li = 0;
+const LB = $("#lb");
+
+function lb(n) {
+  const g = A(DB.gallery);
+  li = (n + g.length) % g.length;
+  $("img", LB).src = g[li].src;
+  $("img", LB).referrerPolicy = "no-referrer";
+  $("p", LB).textContent = g[li].caption || "";
+  LB.classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+
+const closeLB = () => {
+  LB.classList.remove("on");
+  document.body.style.overflow = "";
+};
+
+$(".x", LB).onclick = closeLB;
+$(".pv", LB).onclick = () => lb(li - 1);
+$(".nx", LB).onclick = () => lb(li + 1);
+LB.onclick = (e) => e.target === LB && closeLB();
+
+addEventListener("keydown", (e) => {
+  if (!LB.classList.contains("on")) return;
+  if (e.key === "Escape") closeLB();
+  else if (e.key === "ArrowLeft") lb(li - 1);
+  else if (e.key === "ArrowRight") lb(li + 1);
+});
+
+let sx = null;
+LB.ontouchstart = (e) => (sx = e.touches[0].clientX);
+LB.ontouchend = (e) => {
+  if (sx !== null && Math.abs(e.changedTouches[0].clientX - sx) > 50) lb(li + (e.changedTouches[0].clientX < sx ? 1 : -1));
+  sx = null;
+};
+
+
+/* ==========================================================================
+   9. MENU FAB (mobile — menu "lainnya")
+   ========================================================================== */
+const fw = $("#fabw");
+const fb = $("#fab");
+const fo = (v) => {
+  fw.classList.toggle("open", v);
+  fb.setAttribute("aria-expanded", v);
+};
+fb.onclick = () => fo(!fw.classList.contains("open"));
+$("#sc").onclick = () => fo(0);
+
+
+/* ==========================================================================
+  10. NAVIGASI GLOBAL
+  --------------------------------------------------------------------------
+  Semua tombol [data-go] lewat sini. go() tanpa argumen ke-2 = pushState,
+  jadi setiap klik menambah entri history (Back bisa kembali selangkah).
+  ========================================================================== */
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-go]");
+  if (b) {
+    go(b.dataset.go);
+    fo(0);
+  }
+});
+addEventListener("keydown", (e) => e.key === "Escape" && fo(0));
+
+
+/* ==========================================================================
+  11. ERROR & FILE PICKER (fallback manual)
+  ========================================================================== */
+function fail() {
+  $("#ld").classList.add("h");
+  $("#err").style.display = "block";
+}
+
+$("#fp").onchange = (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  f.text().then((t) => {
+    try {
+      $("#err").style.display = "none";
+      build(JSON.parse(t));
+    } catch (err) {
+      fail();
+    }
+  });
+};
+
+
+/* ==========================================================================
+  12. LOAD DATA dari JSONBin
+  --------------------------------------------------------------------------
+  - Sumber utama: JSONBin (JSONBIN_URL + JSONBIN_KEY di atas).
+  - JSONBin v3 membalas { record: {...}, metadata: {...} },
+    jadi data CV diambil dari json.record (fallback ke json langsung).
+  - Mode ?preview tetap dari localStorage seperti sebelumnya.
+  - Jika JSONBin gagal -> tampilkan panel error + file picker.
+  ========================================================================== */
+async function loadData() {
+  try {
+    if (new URLSearchParams(location.search).has("preview")) {
+      const saved = localStorage.getItem("cv_db_preview");
+      if (saved) return build(JSON.parse(saved));
+    }
+
+    const res = await fetch(JSONBIN_URL, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "X-Master-Key": JSONBIN_KEY,
+        "X-Access-Key": JSONBIN_KEY,
+      },
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error("JSONBin gagal: " + res.status);
+
+    const json = await res.json();
+    const data = json.record ?? json;
+    if (!data || typeof data !== "object") throw new Error("Isi JSONBin bukan objek");
+
+    build(data);
+  } catch (err) {
+    fail();
+  }
+}
+loadData();
+
+</script>
+</body>
+</html>

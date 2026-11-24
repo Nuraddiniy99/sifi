@@ -1,0 +1,325 @@
+{
+  "site": {
+    "name": "Rizki Nur Amaludin",
+    "tagline": "Arabic Language Specialist | Islamic Education | Travel & Hospitality | Creative Digital Media",
+    "roles": [
+      "Arabic Language Specialist",
+      "Islamic Education",
+      "Travel & Hospitality",
+      "Creative Digital Media"
+    ]
+  },
+  "photos": {
+    "main": "https://lh3.googleusercontent.com/d/13UDuxJqCeex8nUrcCn-XODXqZWZgQQaK",
+    "slides": [
+      "https://lh3.googleusercontent.com/d/1O2MMl80twhkP4Hl0tYyA99RbflFRC8pu"
+    ]
+  },
+  "profile": {
+    "summary": [
+      "Mahasiswa Universitas Al-Azhar, Kairo, dengan latar belakang pendidikan pesantren dan pengalaman multidisipliner di bidang pendidikan Islam, pengajaran bahasa Arab, pelayanan hospitality, pendampingan perjalanan wisata dan ibadah umrah, serta pengelolaan organisasi.",
+      "Memiliki kemampuan komunikasi aktif dalam bahasa Arab Fushah dan Amiyah Mesir, pemahaman komprehensif mengenai Fiqih Ibadah, serta keterampilan profesional dalam bidang desain grafis, video editing, photo editing, dan pengembangan sistem aplikasi berbasis web.",
+      "Berpengalaman dalam kepemimpinan organisasi, pengelolaan operasional, pelayanan pelanggan, serta pengembangan sistem digital untuk lembaga sosial dan keagamaan. Memiliki karakter komunikatif, adaptif, bertanggung jawab, responsif, dan berorientasi pada solusi serta kepuasan pelayanan."
+    ],
+    "personal": [
+      {
+        "label": "Nama Lengkap",
+        "value": "Rizki Nur Amaludin"
+      },
+      {
+        "label": "Tempat, Tanggal Lahir",
+        "value": "Jakarta, 25 Juli 2003"
+      },
+      {
+        "label": "Alamat",
+        "value": "Cikande Permai, Cikande, Serang, Banten"
+      },
+      {
+        "label": "Status",
+        "value": "Belum menikah"
+      }
+    ]
+  },
+  "languages": [
+    {
+      "name": "Bahasa Indonesia",
+      "level": "Aktif",
+      "percent": 100
+    },
+    {
+      "name": "Bahasa Arab",
+      "level": "Fushah dan Amiyah Mesir",
+      "percent": 90
+    }
+  ],
+  "skills": [
+    {
+      "title": "Bahasa dan Komunikasi",
+      "items": [
+        "Menguasai bahasa Arab Fushah dan Amiyah Mesir.",
+        "Mampu berkomunikasi secara interaktif dalam lingkungan multibahasa dan lintas budaya.",
+        "Memiliki kemampuan komunikasi interpersonal yang baik."
+      ]
+    },
+    {
+      "title": "Pendidikan dan Keislaman",
+      "items": [
+        "Menguasai Fiqih Ibadah secara komprehensif.",
+        "Memiliki pengalaman mengajar bahasa Arab dan kaligrafi.",
+        "Memiliki pengalaman membimbing dan memberikan edukasi keislaman."
+      ]
+    },
+    {
+      "title": "Creative & Digital Media",
+      "items": [
+        "Professional Graphic Design.",
+        "Professional Video Editing.",
+        "Professional Photo Editing.",
+        "Pengembangan dan pengelolaan aplikasi berbasis web."
+      ]
+    },
+    {
+      "title": "Leadership & Operational Management",
+      "items": [
+        "Kepemimpinan dan pengelolaan organisasi.",
+        "Administrasi dan koordinasi operasional.",
+        "Pelayanan pelanggan dan hospitality.",
+        "Pendampingan perjalanan wisata dan ibadah umrah."
+      ]
+    },
+    {
+      "title": "Service Excellence",
+      "items": [
+        "Ramah, sopan, komunikatif, dan responsif.",
+        "Berorientasi pada solusi dan kepuasan pelanggan.",
+        "Adaptif, bertanggung jawab, serta mampu bekerja secara kolaboratif."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Universitas Al-Azhar Asy-Syarif, Kairo, Mesir",
+      "program": "S1",
+      "period": "2024 – Sekarang",
+      "note": "Predikat akademik: Jayyid Jiddan selama dua tahun."
+    },
+    {
+      "school": "Markaz Lughoh Syaikh Zaid, Kairo, Mesir",
+      "program": "Program Pembelajaran Bahasa Arab",
+      "period": "2024",
+      "note": ""
+    },
+    {
+      "school": "Madrasah Aliyah Pondok Pesantren Daarul Falah, Carenang",
+      "program": "Madrasah Aliyah",
+      "period": "2019 – 2022",
+      "note": ""
+    },
+    {
+      "school": "Madrasah Tsanawiyah Pondok Pesantren Daarul Falah, Carenang",
+      "program": "Madrasah Tsanawiyah",
+      "period": "2016 – 2019",
+      "note": ""
+    },
+    {
+      "school": "Madrasah Ibtidaiyah Daarul Akhyar, Cikande",
+      "program": "Madrasah Ibtidaiyah",
+      "period": "2010 – 2016",
+      "note": ""
+    }
+  ],
+  "experience": [
+    {
+      "group": "Pendidikan dan Pengajaran",
+      "items": [
+        {
+          "title": "Guru Bahasa Arab & Guru Kaligrafi",
+          "org": "Pondok Pesantren Daarul Falah, Carenang",
+          "period": "2022 – 2024",
+          "points": [
+            "Mengajar bahasa Arab kepada santri.",
+            "Memberikan pembelajaran dan bimbingan seni kaligrafi.",
+            "Mendukung pengembangan kemampuan bahasa dan keterampilan seni santri."
+          ]
+        },
+        {
+          "title": "Pembimbing dan Pengajar",
+          "org": "Rumah Bimbingan Qohiro Center, Kairo",
+          "period": "2024 – 2025",
+          "points": [
+            "Memberikan bimbingan dan pembelajaran kepada peserta didik.",
+            "Mendukung kegiatan edukasi dan pengembangan kemampuan akademik."
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Travel, Guiding & Religious Services",
+      "items": [
+        {
+          "title": "Co-Guide Wisata Keliling Mesir",
+          "org": "Royal Asia Homestay, Kairo",
+          "period": "",
+          "points": [
+            "Mendampingi kegiatan wisata keliling Mesir.",
+            "Membantu memberikan informasi dan pelayanan kepada wisatawan."
+          ]
+        },
+        {
+          "title": "Asisten Muthowwif",
+          "org": "Kanomas Tour & Travel",
+          "period": "September 2026 · 41 Jamaah",
+          "points": []
+        },
+        {
+          "title": "Asisten Muthowwif",
+          "org": "KUBI (Konsorsium Umroh Bersama Indonesia)",
+          "period": "September 2026",
+          "points": []
+        },
+        {
+          "title": "Asisten Muthowwif",
+          "org": "KUBI (Konsorsium Kanomas, Kharisam dan Ameena)",
+          "period": "Oktober 2026",
+          "points": []
+        },
+        {
+          "title": "Asisten Muthowwif",
+          "org": "Kanomas Tour & Travel",
+          "period": "November 2026",
+          "points": []
+        }
+      ]
+    },
+    {
+      "group": "Hospitality & Operational Services",
+      "items": [
+        {
+          "title": "Housekeeper",
+          "org": "Royal Asia Homestay, Kairo",
+          "period": "2024 – Sekarang",
+          "points": [
+            "Terlibat dalam kegiatan operasional dan pelayanan hospitality homestay.",
+            "Mendukung kenyamanan serta kebutuhan pelayanan tamu."
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Creative & Digital Media",
+      "items": [
+        {
+          "title": "Graphic Designer",
+          "org": "Byzan Education",
+          "period": "2026",
+          "points": [
+            "Menangani pekerjaan desain grafis untuk kebutuhan media dan komunikasi visual."
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Organizational & Administrative Experience",
+      "items": [
+        {
+          "title": "Sekretaris Utama",
+          "org": "LAZIS WAZIQOH – Wakaf, Zakat, Infaq dan Shodaqoh, KMB Mesir",
+          "period": "2025",
+          "points": [
+            "Terlibat dalam administrasi dan pengelolaan organisasi sosial-keagamaan."
+          ]
+        },
+        {
+          "title": "Divisi Media Kreatif",
+          "org": "Badan Pengurus Keluarga Mahasiswa Banten Mesir",
+          "period": "2024",
+          "points": []
+        },
+        {
+          "title": "Anggota Khusus Tarqiyatul Lughoh",
+          "org": "Pondok Pesantren Daarul Falah",
+          "period": "2018 – 2020",
+          "points": []
+        },
+        {
+          "title": "Ketua OSIS IP3DF",
+          "org": "Pondok Pesantren Daarul Falah",
+          "period": "2021",
+          "points": []
+        },
+        {
+          "title": "Ketua Tarqiyatul Lughoh (Bahasa)",
+          "org": "Pondok Pesantren Daarul Falah",
+          "period": "2022",
+          "points": []
+        },
+        {
+          "title": "Koordinator Bagian Keamanan",
+          "org": "Pondok Pesantren Daarul Falah, Carenang",
+          "period": "2023",
+          "points": []
+        }
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "group": "Prestasi Akademik",
+      "items": [
+        "Juara Umum I Madrasah Ibtidaiyah Daarul Akhyar.",
+        "Peringkat I secara konsisten selama masa pendidikan Madrasah Tsanawiyah Pondok Pesantren Daarul Falah.",
+        "Juara Umum I Pondok Pesantren Daarul Falah.",
+        "Meraih predikat Jayyid Jiddan selama dua tahun di Universitas Al-Azhar, Kairo."
+      ]
+    },
+    {
+      "group": "Prestasi Non-Akademik",
+      "items": [
+        "Juara I Lomba Kaligrafi tingkat Pondok Pesantren Daarul Falah secara berturut-turut.",
+        "Juara II Lomba Kaligrafi tingkat Madrasah Aliyah se-Kabupaten Serang (2019).",
+        "Juara II Cerdas Cermat Persami se-Kabupaten Serang (2015).",
+        "Membangun sistem online berbasis Web Application untuk tata kelola komprehensif LAZIS WAZIQOH (Wakaf, Zakat, Infaq dan Shodaqoh), KMB Mesir."
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "https://lh3.googleusercontent.com/d/11L_BNdIl1nUL9mUQxDlyg8-ayJ9wZOwr",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1wE-G3MdKLdkpvrR1KsVg6vJS0M_3uL9c",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/18EPqkDPgAf8lf59T6qRTUC03oZJunHTT",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1Fuko_wI2ox6Kp2BvqDTl7ewOAizPWV4Z",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1Woxgq-uVEMXrLM7lKsIUmKuvSX9OYzdy",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/10kbgyBbk65GRkZAWm9ijxbQXJylK4-6p",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1FOLg_nwp-pNly1c4b6ArckDYVwb5GNZU",
+      "caption": ""
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1AJtxcTfbdJi7MkHgCMLj3x8637ubu2A5",
+      "caption": ""
+    }
+  ],
+  "contact": {
+    "whatsapp": "+62 85880856341",
+    "email": "nuraddiniy99@gmail.com",
+    "instagram": "@nuraddiniy25",
+    "address": "Cikande Permai, Cikande, Serang, Banten"
+  }
+}

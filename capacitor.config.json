@@ -1,0 +1,9 @@
+{
+  "appId": "com.masiki.sifi",
+  "appName": "SiFi by Masiki",
+  "webDir": "www",
+  "server": {
+    "url": "https://nuraddiniy99.github.io/sifi-bymasiki/",
+    "cleartext": false
+  }
+}
